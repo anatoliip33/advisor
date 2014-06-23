@@ -1,0 +1,13 @@
+<h1>Listing hotels</h1>
+
+<% @hotels.in_groups_of(3) do |group| %>
+  <div class="row">
+    <% group.compact.each do |hotel| %>
+      <div class="span4">
+        <%= image_tag hotel.photo_url(:thumb) if hotel.photo.present?%>
+        <h4><%= link_to hotel.title, hotel %></h4>
+        <%= hotel.description %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
