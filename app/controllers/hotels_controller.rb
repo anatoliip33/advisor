@@ -1,6 +1,6 @@
 class HotelsController < ApplicationController
-  before_action :set_hotel, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:create, :update, :destroy, :new]
+  before_action :set_hotel, only: [:edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index]
   # GET /hotels
   # GET /hotels.json
   def index
@@ -10,6 +10,7 @@ class HotelsController < ApplicationController
   # GET /hotels/1
   # GET /hotels/1.json
   def show
+    @hotel = Hotel.find(params[:id])
     @comments = @hotel.comments.all
     @comment = @hotel.comments.build
   end
@@ -67,6 +68,8 @@ class HotelsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_hotel
       @hotel = Hotel.find(params[:id])
+      @comments = @hotel.comment.all
+      @comment = @hotel.comments.build
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
