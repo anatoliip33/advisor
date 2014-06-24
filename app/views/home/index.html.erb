@@ -3,9 +3,7 @@
     <%= image_tag hotel.photo_url(:thumb) if hotel.photo.present?%>
     <h4><%= link_to hotel.title, hotel %></h4>
     <%= hotel.description %>
-  </div>
-  <div>
-    <% @hotels.comments.each do |comment| %>
+    <% hotel.comments.each do |comment| %>
     <strong><%= comment.user_name %></strong><br />
     <p><%= comment.body %></p>
     <% end %>

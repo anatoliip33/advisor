@@ -61,7 +61,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
-  root to: 'home#index', as: 'home'
+  get "home/index"
+  root to: "home#index", as: "home"
 
 end

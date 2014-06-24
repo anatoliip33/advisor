@@ -34,6 +34,7 @@ class HotelsController < ApplicationController
         format.html { render :new }
         format.json { render json: @hotel.errors, status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -48,6 +49,7 @@ class HotelsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @hotel.errors, status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -59,6 +61,7 @@ class HotelsController < ApplicationController
       format.html { redirect_to hotels_url, notice: 'Hotel was successfully destroyed.' }
       format.json { head :no_content }
     end
+    format.js
   end
 
   private
