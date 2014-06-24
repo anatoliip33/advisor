@@ -1,5 +1,5 @@
 class HotelsController < ApplicationController
-  before_action :set_hotel, only: [:edit, :update, :destroy]
+  before_action :set_hotel, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index]
   # GET /hotels
   # GET /hotels.json
@@ -10,9 +10,6 @@ class HotelsController < ApplicationController
   # GET /hotels/1
   # GET /hotels/1.json
   def show
-    @hotel = Hotel.find(params[:id])
-    @comments = @hotel.comments.all
-    @comment = @hotel.comments.build
   end
 
   # GET /hotels/new
@@ -31,8 +28,8 @@ class HotelsController < ApplicationController
 
     respond_to do |format|
       if @hotel.save
-        format.html { redirect_to @hotel, notice: 'Hotel was successfully created.' }
-        format.json { render :show, status: :created, location: @hotel }
+        format.html { redirect_to hotels_url, notice: 'Hotel was successfully created.' }
+        format.json { render :index, status: :created, location: @hotel }
       else
         format.html { render :new }
         format.json { render json: @hotel.errors, status: :unprocessable_entity }
@@ -68,7 +65,7 @@ class HotelsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_hotel
       @hotel = Hotel.find(params[:id])
-      @comments = @hotel.comment.all
+      @comments = @hotel.comments.all
       @comment = @hotel.comments.build
     end
 

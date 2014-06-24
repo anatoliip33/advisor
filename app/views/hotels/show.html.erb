@@ -12,14 +12,9 @@
         <strong><%= comment.user_name %></strong>
         <br />
         <p><%= comment.body %></p>
-        <p><%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></p>
       </div>
     <% end %>
     <%= render 'comments/form' %>
-    <p>
-      <%= link_to 'Edit', edit_hotel_path(@hotel) %> |
-      <%= link_to 'Destroy', @hotel, confirm: 'Are you sure?', method: :delete %> |
-      <%= link_to 'Back', hotels_path %>
-    </p>
+      <%= link_to 'Back', hotels_path, :class => "btn btn-success" %>
   </div>
 </div>
