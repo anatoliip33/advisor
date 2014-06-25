@@ -10,7 +10,7 @@
     <div class="one"><h3>Description:</h3>
     <%= hotel.description %>
     </div>
-    <div><%= check_box_tag "#{hotel.breakfast}", hotel.breakfast %></div>
+    <div><%= hotel.breakfast %></div>
     <div class="price_line">
       <span class="price"><%= number_to_currency(hotel.price) %>|per_day</span>
     </div>

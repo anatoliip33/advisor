@@ -5,7 +5,7 @@
     <%= f.input :title %>
     <%= f.input :description, :input_html => { :rows => 6 }  %>
     <%= f.input :price %>
-    <%= f.check_box :breakfast %>
+    <%= f.check_box :breakfast, checked_value = "1", unchecked_value = "0" %>
     <%= f.file_field :photo %>
   </div>
 
