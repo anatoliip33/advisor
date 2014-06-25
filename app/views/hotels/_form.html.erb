@@ -4,11 +4,10 @@
   <div class="form-inputs">
     <%= f.input :title %>
     <%= f.input :description, :input_html => { :rows => 6 }  %>
-    <%= f.input :price %>
-    <%= f.check_box :breakfast, checked_value = "1", unchecked_value = "0" %>
+    <%= f.input :price, as: :string, :input_html => {value: number_with_precision(f.object.price, precision: 2) }, :hint => "prices should be in USD" %>
+    <%= f.input :breakfast, :as => :boolean, inline_label: 'Breakfast included? (yes/no)', label: false %>
     <%= f.file_field :photo %>
   </div>
-
   <div class="form-actions">
     <%= f.button :submit %>
   </div>

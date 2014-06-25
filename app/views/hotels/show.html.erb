@@ -8,11 +8,27 @@
     <div><b>Room Description: </b>
       <div><%= @hotel.description %></div>
     </div>
+     <div class="break">
+      <label>Breakfast:</label>
+      <%= @hotel.breakfast ? 'yes' : 'no' %>
+    <div>
+    <label>Price:</label>
+      <span class="price"><%= number_to_currency(@hotel.price) %>|per_day</span>
+    </div>
+    </div>
      <p>
       <%= link_to 'Edit', edit_hotel_path(@hotel) %> |
       <%= link_to 'Destroy', @hotel, confirm: 'Are you sure?', method: :delete %> |
       <%= link_to 'Back', hotels_path %>
      </p>
+     <h3>Adress</h3>
+     <% @adresses.each do |adress| %>
+      <div>
+      <strong><%= adress.country %></strong>
+      </div>
+      <p><%= adress.state %></p>
+    <% end %>
+    <%= render 'adresses/form' %>
     <h3>Comments</h3>
     <% @comments.each do |comment| %>
       <div>

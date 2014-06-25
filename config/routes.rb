@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :adresses
+
   resources :comments
 
   resources :hotels

@@ -67,6 +67,8 @@ class HotelsController < ApplicationController
       @hotel = Hotel.find(params[:id])
       @comments = @hotel.comments.all
       @comment = @hotel.comments.build
+      @adresses = @hotel.adresses.all
+      @adress = @hotel.adresses.build
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

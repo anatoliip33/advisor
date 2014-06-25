@@ -79,3 +79,9 @@ Hotel.create(
   price: 60.00
   )
 
+Adress.create(
+  country: 'France',
+  state: 'zip',
+  city: 'Paris',
+  street: 'Rue Lamartine'
+  )

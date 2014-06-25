@@ -10,8 +10,12 @@
     <div class="one"><h3>Description:</h3>
     <%= hotel.description %>
     </div>
-    <div><%= hotel.breakfast %></div>
+    <div class="break">
+      <label>Breakfast:</label>
+      <%= hotel.breakfast ? 'yes' : 'no' %>
+    </div>
     <div class="price_line">
+    <label>Price:</label>
       <span class="price"><%= number_to_currency(hotel.price) %>|per_day</span>
     </div>
 
