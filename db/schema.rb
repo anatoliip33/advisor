@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20140623150835) do
     t.string   "title"
     t.text     "description"
     t.string   "photo"
+    t.boolean  "breakfast"
+    t.decimal  "price",       precision: 8, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
   end

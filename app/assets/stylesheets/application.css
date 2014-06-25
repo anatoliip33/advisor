@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  *= require bootstrap_and_overrides
+ *= require jquery.raty
  */
 body { padding-top: 60px; }
 footer { margin-top: 100px; }

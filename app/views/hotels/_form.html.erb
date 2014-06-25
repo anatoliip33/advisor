@@ -3,7 +3,9 @@
 
   <div class="form-inputs">
     <%= f.input :title %>
-    <%= f.input :description %>
+    <%= f.input :description, :input_html => { :rows => 6 }  %>
+    <%= f.input :price %>
+    <%= f.check_box :breakfast %>
     <%= f.file_field :photo %>
   </div>
 

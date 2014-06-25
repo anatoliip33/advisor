@@ -8,6 +8,7 @@
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <script src="http://code.jquery.com/jquery.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
   <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -24,7 +25,9 @@
         <%= link_to 'Edit profile', edit_user_registration_path, :class => 'btn btn-default navbar-btn' %> |
         <button type="button" class="btn btn-default navbar-btn">Sign in</button>
         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-default navbar-btn'  %>
+        </div>
       <% else %>
+      <div id="right-nav">
         <%= link_to "Sign up", new_user_registration_path, :class => 'btn btn-default navbar-btn'  %> |
         <%= link_to "Login", new_user_session_path, :class => 'btn btn-default navbar-btn'  %>
       <% end %>

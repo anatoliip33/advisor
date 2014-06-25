@@ -1,7 +1,7 @@
 <h1>Top rated hotels</h1>
-<% @hotels.each do |hotel| %>
 <div class="container">
-  <h4><%= link_to hotel.title, hotel %></h4>
+<% @hotels.each do |hotel| %>
+  <h4><%= link_to hotel.title, hotel %></h4><div id="star"></div>
   <div class="hotel">
     <%= image_tag hotel.photo_url(:thumb) if hotel.photo.present?%>
   </div>
@@ -9,9 +9,20 @@
     <h3>Comments</h3>
     <% hotel.comments.each do |comment| %>
       <strong><%= comment.user_name %></strong><br />
-      <p><%= comment.body %></p>
+      <p><%= truncate(strip_tags(comment.body), length:100) %></p>
       <% end %>
       <p style="clear:left"></p>
     </div>
 <% end %>
 </div>
+
+<script>
+  $('#star').raty({
+    click: function(score, evt) {
+      $('#star').raty('readOnly', true);
+    },
+    targetType : 'score',
+    targetKeep : true,
+    path: '/assets'
+      });
+</script>
