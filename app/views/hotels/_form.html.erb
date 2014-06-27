@@ -7,6 +7,15 @@
     <%= f.input :price, as: :string, :input_html => {value: number_with_precision(f.object.price, precision: 2) }, :hint => "prices should be in USD" %>
     <%= f.input :breakfast, :as => :boolean, inline_label: 'Breakfast included? (yes/no)', label: false %>
     <%= f.file_field :photo %>
+    <%= f.simple_fields_for :adress, @hotel.build_adress do |p| %>
+      <%= p.error_notification %>
+      <%= p.input :country, collection: Country.all, as: :select %>
+      <%= p.input :state %>
+      <%= p.input :city %>
+      <%= p.input :street %>
+      <%= p.hidden_field :hotel_id %>
+      <%= p.button :submit %>
+    <% end %>
   </div>
   <div class="form-actions">
     <%= f.button :submit %>

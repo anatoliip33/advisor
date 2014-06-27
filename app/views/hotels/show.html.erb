@@ -22,13 +22,10 @@
       <%= link_to 'Back', hotels_path %>
      </p>
      <h3>Adress</h3>
-     <% @adresses.each do |adress| %>
-      <div>
-      <strong><%= adress.country %></strong>
-      </div>
-      <p><%= adress.state %></p>
-    <% end %>
-    <%= render 'adresses/form' %>
+        <div><%= @adress.country %></div>
+        <%= @adress.state %>
+        <%= @adress.city %>
+        <%= @adress.street %>
     <h3>Comments</h3>
     <% @comments.each do |comment| %>
       <div>
