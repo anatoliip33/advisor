@@ -1,19 +1,22 @@
 Hotel.create(
-  title: 'The Opus Building',
-  description: 'The Opus Building by Zaha Hadid Prévu pour 2016,
-   ce projet d’hôtel Me by Melia à Dubaï sera logé au sein de la Tour Opus,
-    proposée par Zaha Hadid Architects. Premier hôtel de l’architecte irako-britannique,
-    cette structure originale de plus de 95 mètres de haut proposera plus de 100 chambres.',
+  title: 'Opus Office Tower',
+  description: 'One of several unique buildings specified as part of masterplan concept for Dubai,
+   The Opus comprises two structures, conceived as a single cube eroded by a free-form void,
+    which appears to ‘hover’ above ground-level. A pixilated reflective façade renders the cube full by day;
+     by night, it ‘dematerializes’ as light floods the void.',
   photo: File.open(File.join(Rails.root, "/app/assets/images/hotel-1.jpg")),
-  price: 50.00
+  price: 50.00,
+  adress_attributes: {country: "United Arab Emirates", state: "Omniyat", city: "Abu Dhabi", street: "Meadows 9"}
   )
 
 Hotel.create(
   title: 'City of Dreams',
-  description: 'Tower by Zaha Hadid Avec 40 étages, cette tour incroyable est un projet imaginé par Zaha Hadid Architects qui proposera pas moins de 780 chambres & suites. Prévue pour 2017,
-   cette structure impressionnante se démarque et propose un aménagement à la hauteur de l’ambition de la ville de Macau, qui veut se présenter comme la ville des rêves.',
+  description: 'Melco Crown Entertainment, a developer and owner of casino gaming and
+   entertainment resort facilities in Asia, has unveiled the project details and design of the fifth
+    hotel tower at City of Dreams, the company’s flagship property in Cotai, Macau. ',
   photo: File.open(File.join(Rails.root, "/app/assets/images/hotel-2.jpg")),
-  price: 55.00
+  price: 55.00,
+  adress_attributes: {country: "China", state: "Cotai", city: "Macau", street: "Estrada do Istmo Macau"}
   )
 
 Hotel.create(
@@ -21,14 +24,16 @@ Hotel.create(
   description: 'Last month the world watched as China broke ground on the world’s tallest building the construction team behind the projected 838 meter Sky City plans to whip it up in an unbelievable 10 months. This month U.S. based hotel brand Sheraton is opening what might be the oddest looking piece of hotel architecture you’ll see this year. Designed by much hyped Beijing based architect Ma Yangon of MAD architects, the Sheraton Huizhou Hot Springs Resort is made up of “layers” of floors to create a ring that rises from the South Bank of Huizhou’s Taihu Lake. Called the Sheraton Huizhou Hot Springs Resort the property is just more than 100 meters high and 116 meters wide,
    covering an area of 75 acres with a total floor area of 95,000 square meters.',
   photo: File.open(File.join(Rails.root, "/app/assets/images/hotel-3.jpg")),
-  price: 65.00
+  price: 65.00,
+  adress_attributes: {country: "China", state: "Zhejiang", city: "Huzhou", street: "Taihu Road"}
   )
 
 Hotel.create(
   title: 'Hotel Lutetia',
   description: 'The Lutetia - the Latin name for Paris - is a classic Art Deco hotel that, when it opened in 1910, drew artists and writers to its cocktail-fuelled flame. There are now 230 rooms and suites, most of which have original paintings and sculptures, some dating from the days when Matisse and Picasso used it as their Paris base.',
   photo: File.open(File.join(Rails.root, "/app/assets/images/hotel-8.jpg")),
-  price: 55.00
+  price: 55.00,
+  adress_attributes: {country: "France", state: "Ile-de-France", city: "Paris", street: "Saint-Germain-des-Prés"}
   )
 
 Hotel.create(
@@ -37,7 +42,8 @@ Hotel.create(
    Welcome to the Parisian palace. Located on the prestigious Avenue Hoche, just steps from the Champs-Elysées and the Arc de Triomphe, Le Royal Monceau,
    Raffles Paris is an oasis of charm, calm and conviviality in the heart of Paris.',
   photo: File.open(File.join(Rails.root, "/app/assets/images/hotel-9.jpg")),
-  price: 60.00
+  price: 60.00,
+  adress_attributes: {country: "France", state: "Ile-de-France", city: "Paris", street: "avenue Hoche"}
   )
 
 Hotel.create(
@@ -49,7 +55,8 @@ Hotel.create(
       It also has a home automation system which automatically regulates the temperature
        of the room based on guest presence or absence from the room.',
   photo: File.open(File.join(Rails.root, "/app/assets/images/hotel-10.jpg")),
-  price: 60.00
+  price: 60.00,
+  adress_attributes: {country: "Canada", state: "Quebec", city: "Quebec city", street: "Rue Saint-Jean"}
   )
 
 Hotel.create(
@@ -63,7 +70,8 @@ Hotel.create(
         will also incorporate an indoor ski slope, water park and “Ice World” entertainment park
          which will stretch over a cliff face and connect two sides of the quarry.',
   photo: File.open(File.join(Rails.root, "/app/assets/images/hotel-5.jpg")),
-  price: 70.00
+  price: 70.00,
+  adress_attributes: {country: "China", state: "Jiangxi", city: "Changsha", street: "Pingtang Avenue"}
   )
 
 Hotel.create(
@@ -76,12 +84,6 @@ Hotel.create(
        en un décor agréable et chaleureux, tout en y ajoutant une touche résolument contemporaine.
         Le tout forme un havre de paix dans lequel il fait bon se ressourcer.',
   photo: File.open(File.join(Rails.root, "/app/assets/images/hotel-6.jpg")),
-  price: 60.00
-  )
-
-Adress.create(
-  country: 'France',
-  state: 'zip',
-  city: 'Paris',
-  street: 'Rue Lamartine'
+  price: 60.00,
+  adress_attributes: {country: "France", state: "Rhône-Alpes", city: "Courchevel", street: "Le Jardin Alpin"}
   )

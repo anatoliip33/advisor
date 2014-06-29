@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'devise'
 
 gem 'twitter-bootstrap-rails'
-gem 'simple_form'
+gem 'simple_form', github: 'plataformatec/simple_form'
 
 gem 'mini_magick', '3.5.0'
 

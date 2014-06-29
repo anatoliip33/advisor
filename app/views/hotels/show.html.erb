@@ -4,7 +4,7 @@
   </div>
 
   <div class="description">
-    <div><b>Title: </b><h4><%= @hotel.title %></h4></div>
+    <div><b>Title: </b><h4><strong><%= @hotel.title %></strong></h4></div>
     <div><b>Room Description: </b>
       <div><%= @hotel.description %></div>
     </div>
@@ -21,12 +21,16 @@
       <%= link_to 'Destroy', @hotel, confirm: 'Are you sure?', method: :delete %> |
       <%= link_to 'Back', hotels_path %>
      </p>
-     <h3>Adress</h3>
-        <div><%= @adress.country %></div>
-        <%= @adress.state %>
-        <%= @adress.city %>
-        <%= @adress.street %>
-    <h3>Comments</h3>
+     <h4><strong style="color:brown">Adress</strong></h4>
+      <label>Country:</label>
+      <span><%= @hotel.adress.country %></span><br>
+      <label>State:</label>
+      <span><%= @hotel.adress.state %></span><br>
+      <label>City:</label>
+      <span><%= @hotel.adress.city %></span><br>
+      <label>Street:</label>
+      <span><%= @hotel.adress.street %></span>
+    <h4><strong>Comments</strong></h4>
     <% @comments.each do |comment| %>
       <div>
         <strong><%= comment.user_name %></strong>
@@ -36,6 +40,8 @@
       </div>
     <% end %>
     <%= render 'comments/form' %>
+    <%= render 'ratings/form' %>
+
       <%= link_to 'Back', hotels_path, :class => "btn btn-success" %>
   </div>
 </div>

@@ -5,6 +5,9 @@
   <div class="hotel">
     <%= image_tag hotel.photo_url(:thumb) if hotel.photo.present?%>
   </div>
+  <div>
+    <%= hotel.rating %>
+  </div>
   <div class="one">
   <h3>Comments</h3>
   <% hotel.comments.each do |comment| %>

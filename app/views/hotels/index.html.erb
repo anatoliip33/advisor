@@ -18,7 +18,6 @@
     <label>Price:</label>
       <span class="price"><%= number_to_currency(hotel.price) %>|per_day</span>
     </div>
-
     <%= link_to 'Edit', edit_hotel_path(hotel) %>
     <%= link_to 'Destroy', hotel, method: :delete, data: { confirm: 'Are you sure?' } %>
     <p style="clear:left"></p>
