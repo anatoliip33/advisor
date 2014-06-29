@@ -26,7 +26,7 @@ private
   end
 
   def rating_params
-    params.require(:rating).permit(:score, :hotel_id).merge(user: current_user)
+    params.require(:rating).permit(:score, :hotel_id, :comment_id).merge(user: current_user)
   end
 
 end

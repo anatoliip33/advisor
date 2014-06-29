@@ -1,31 +1,37 @@
 <h1>Top rated hotels</h1>
 <div class="container">
 <% @hotels.each do |hotel| %>
-  <h4><%= link_to hotel.title, hotel %></h4><div id="star"></div>
+  <div class="title">
+    <h4>
+      <%= link_to hotel.title, hotel %>
+    </h4>
+  </div>
+  <div id="rating" data-score="<%= hotel.rating %>"></div>
   <div class="hotel">
     <%= image_tag hotel.photo_url(:thumb) if hotel.photo.present?%>
   </div>
-  <div>
-    <%= hotel.rating %>
-  </div>
+  <h4 style="text-decoration:underline">
+    <strong style="color:brown">Rating:
+      <%= number_with_precision(hotel.rating, precision: 0) %>
+    </strong>
+  </h4>
   <div class="one">
-  <h3>Comments</h3>
-  <% hotel.comments.each do |comment| %>
-    <strong><%= comment.user_name %></strong><br />
-    <p><%= truncate(strip_tags(comment.body), length:100) %></p>
+    <h3>Comments</h3>
+    <% hotel.comments.each do |comment| %>
+      <strong><%= comment.user_name %></strong><br />
+      <p><%= truncate(strip_tags(comment.body), length:100) %></p>
+      <% end %>
+      <p style="clear:left"></p>
     <% end %>
-    <p style="clear:left"></p>
   </div>
-<% end %>
 </div>
 
 <script>
-  $('#star').raty({
-    click: function(score, evt) {
-      $('#star').raty('readOnly', true);
-    },
-    targetType : 'score',
-    targetKeep : true,
-    path: '/assets'
-      });
+  $('#rating').raty({
+    readOnly: true,
+    path: '/assets',
+    score: function() {
+      $(this).data('score');
+    }
+    });
 </script>

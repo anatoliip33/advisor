@@ -1,0 +1,24 @@
+%h1 Top rated hotels
+.container
+  - @hotels.each do |hotel|
+    .title
+      %h4= link_to hotel.title, hotel
+    #star
+    .hotel
+      = image_tag hotel.photo_url(:thumb) if hotel.photo.present?
+    %h4{:style=>"text-decoration:underline"}
+      %strong{:style=>"color:brown"}Rating:
+      = number_with_precision(hotel.rating, precision: 0)
+    .one
+      %h3 Comments
+      - hotel.comments.each do |comment|
+        %strong= comment.user_name
+        %br
+        %p= truncate(strip_tags(comment.body), length:100)
+      %p{:style=>"clear:left"}
+
+:javascript
+  $('#star').raty({
+    readOnly: true,
+    path: '/assets'
+      });

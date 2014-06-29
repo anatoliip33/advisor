@@ -4,6 +4,7 @@ class CreateRatings < ActiveRecord::Migration
       t.integer :score, :default => 0
       t.integer :hotel_id
       t.integer :user_id
+      t.integer :comment_id
 
       t.timestamps
     end

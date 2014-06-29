@@ -4,7 +4,7 @@ class CreateHotels < ActiveRecord::Migration
       t.string :title
       t.text :description
       t.string :photo
-      t.integer :rating
+      t.float :rating
       t.boolean :breakfast
       t.decimal :price, precision:8, scale: 2
 

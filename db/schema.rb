@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20140627190132) do
     t.string   "title"
     t.text     "description"
     t.string   "photo"
-    t.integer  "rating"
+    t.float    "rating"
     t.boolean  "breakfast"
     t.decimal  "price",       precision: 8, scale: 2
     t.datetime "created_at"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20140627190132) do
     t.integer  "score",      default: 0
     t.integer  "hotel_id"
     t.integer  "user_id"
+    t.integer  "comment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -5,6 +5,13 @@
     <%= f.input :user_name %>
     <%= f.input :body %>
     <%= f.hidden_field :hotel_id %>
+    <%= f.simple_fields_for :rating, @comment.rating do |p| %>
+      <%= p.input :hotel_id, as: :hidden %>
+      <%= p.input :user_id, as: :hidden %>
+      <%= p.input :comment_id, as: :hidden %>
+      <%= p.hidden_field :score %>
+      <%= p.input :score, as: :select, collection: (1..5).to_a, label: 'Rating' %>
+    <% end %>
   </div>
 
   <div class="form-actions">

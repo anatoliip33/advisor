@@ -10,13 +10,12 @@ class HotelsController < ApplicationController
   # GET /hotels/1
   # GET /hotels/1.json
   def show
+    @rating = Rating.new(user: current_user, hotel: @hotel, comment: @comment, score: 5)
   end
 
   # GET /hotels/new
   def new
     @hotel = Hotel.new
-    @hotel.adress = Adress.new
-    @hotel.adress ||= Adress.new
   end
 
   # GET /hotels/1/edit
@@ -70,7 +69,7 @@ class HotelsController < ApplicationController
       @comments = @hotel.comments.all
       @comment = @hotel.comments.build
       @hotel.adress ||= Adress.new
-      @hotel.rating ||= Rating.new
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
