@@ -2,13 +2,11 @@
 .container
   - @hotels.each do |hotel|
     .title
-      %h4= link_to hotel.title, hotel
-    #star
+      %h3= link_to hotel.title, hotel
+    %h4
+      .rating{:data_score => "#{hotel.rating}"}Rating:
     .hotel
       = image_tag hotel.photo_url(:thumb) if hotel.photo.present?
-    %h4{:style=>"text-decoration:underline"}
-      %strong{:style=>"color:brown"}Rating:
-      = number_with_precision(hotel.rating, precision: 0)
     .one
       %h3 Comments
       - hotel.comments.each do |comment|
@@ -18,7 +16,10 @@
       %p{:style=>"clear:left"}
 
 :javascript
-  $('#star').raty({
+  $('.rating').raty({
     readOnly: true,
-    path: '/assets'
-      });
+    path: '/img',
+    score: function(){
+      return $(this).attr('data_score');
+    }
+  });

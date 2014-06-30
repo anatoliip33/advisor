@@ -1,0 +1,19 @@
+%h1 Listing hotels
+= link_to 'Add Hotel', new_hotel_path, :class => "btn btn-primary", id: "top_hotel"
+.content
+  - @hotels.each do |hotel|
+    %h3= link_to hotel.title, hotel
+    .hotel
+      = image_tag hotel.photo_url(:thumb) if hotel.photo.present?
+    .one
+      %h3 Description:
+      = hotel.description
+    .break
+      %label Breakfast:
+      = hotel.breakfast ? 'yes' : 'no'
+    .price_line
+      %label Price:
+      %span{:class=>"price"}#{number_to_currency(hotel.price)}|per_day
+    %p{:style=>"clear:left"}
+
+  = link_to 'Add Hotel', new_hotel_path, :class => "btn btn-primary", id: "new_hotel"

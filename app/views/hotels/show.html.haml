@@ -1,0 +1,47 @@
+.content
+  %h4>
+    %strong= @hotel.title
+  = image_tag(@hotel.photo_url, :width => "60%") if @hotel.photo.present?
+  .description
+    %h4
+      %b Description:
+    = @hotel.description
+  .break
+    %label Breakfast included:
+    = @hotel.breakfast ? 'yes' : 'no'
+    %br
+    %label Price:
+    %span{:class=>"price"}#{number_to_currency(@hotel.price)}|per_day
+  %h4
+    %strong{:style=>"color:brown"} Address
+  %label Country:
+  = @hotel.adress.country
+  %br
+  %label State:
+  %span= @hotel.adress.state
+  %br
+  %label City:
+  %span= @hotel.adress.city
+  %br
+  %label Street:
+  %span= @hotel.adress.street
+  %h4
+    %strong Comments
+  - @comments.each do |comment|
+    %strong= comment.user_name
+    %br
+    %p= comment.body
+    %b
+      .rating{:data_score=>"#{comment.rating.score}"}Rating:
+    %p= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }
+  = render 'comments/form'
+  = link_to 'Back', hotels_path, :class => "btn btn-success"
+
+:javascript
+  $('.rating').raty({
+    readOnly: true,
+    path: '/img',
+    score: function(){
+      return $(this).attr('data_score');
+    }
+  });
