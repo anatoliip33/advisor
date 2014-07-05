@@ -1,6 +1,10 @@
 class RatingsController < ApplicationController
   before_action :set_rating, only: [:update]
 
+  def new
+    @rating = Rating.new
+  end
+
   def create
     @rating = Rating.new(rating_params)
 

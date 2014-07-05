@@ -1,12 +1,19 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:destroy]
 
+  def new
+    @comment = Comment.new
+  end
+
   def create
     @comment = Comment.new(comment_params)
 
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @comment.hotel }
+      else
+        format.html { redirect_to @comment.hotel }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
   end

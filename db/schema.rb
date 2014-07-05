@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20140627190132) do
   end
 
   create_table "ratings", force: true do |t|
-    t.integer  "score",      default: 0
+    t.integer  "score"
     t.integer  "hotel_id"
     t.integer  "user_id"
     t.integer  "comment_id"
