@@ -1,7 +1,7 @@
 = simple_form_for @comment do |f|
   = f.error_notification
   .form-inputs
-    = f.input :user_name, label: 'Name', placeholder: 'Required field'
+    = f.input :user_name, label: false, placeholder: 'Name (required field)'
     = f.input :body, placeholder: 'Please, leave your comment', label: false, :input_html => { :rows => 6 }
     = f.hidden_field :hotel_id
     = f.simple_fields_for :rating, @comment.rating do |p|

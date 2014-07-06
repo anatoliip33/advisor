@@ -3,6 +3,14 @@ require 'test_helper'
 class HotelsControllerTest < ActionController::TestCase
   setup do
     @hotel = hotels(:one)
+    @update = {
+      title: 'Podillya',
+      description: 'Very good and clean hotel, room service is good and so on)',
+      photo: 'podillya_hotel.jpg',
+      rating: 3,
+      breakfast: false,
+      price: 20.00
+    }
   end
 
   test "should get index" do
@@ -18,9 +26,8 @@ class HotelsControllerTest < ActionController::TestCase
 
   test "should create hotel" do
     assert_difference('Hotel.count') do
-      post :create, hotel: { description: @hotel.description, photo: @hotel.photo, title: @hotel.title }
+      post :create, hotel: @update
     end
-
     assert_redirected_to hotel_path(assigns(:hotel))
   end
 
@@ -35,7 +42,7 @@ class HotelsControllerTest < ActionController::TestCase
   end
 
   test "should update hotel" do
-    patch :update, id: @hotel, hotel: { description: @hotel.description, photo: @hotel.photo, title: @hotel.title }
+    patch :update, id: @hotel, hotel: @update
     assert_redirected_to hotel_path(assigns(:hotel))
   end
 
