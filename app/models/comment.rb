@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  validates :user_name, :body, presence: true
+  validates :user_name, :body, presence: true, uniqueness: true
   belongs_to :hotel
   belongs_to :user
   has_one :rating, dependent: :destroy

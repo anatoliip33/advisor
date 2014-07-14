@@ -5,6 +5,6 @@ FactoryGirl.define do
     f.title { Faker::Name.title}
     f.description { Faker::Lorem.paragraph }
     f.photo Rack::Test::UploadedFile.new(File.open(File.join(Rails.root, '/spec/assets/hotel/hotel-12.jpg')))
-    f.price { Faker::Number.number(2) }
+    f.price { Faker::Commerce.price }
   end
 end
