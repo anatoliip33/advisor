@@ -1,21 +1,31 @@
 source 'https://rubygems.org'
 
+group :development do
+  gem 'guard-rspec'
+  gem 'guard-spork'
+  gem 'spork-rails', github: 'sporkrb/spork-rails'
+  gem 'rb-fsevent'
+end
+
 group :development, :test do
   gem 'rspec-rails'
+  gem 'rspec-expectations', '~> 3.0.2'
   gem 'factory_girl_rails'
 end
 
 group :test do
   gem 'faker'
+  gem "database_cleaner"
   gem 'capybara'
   gem 'guard-rspec'
   gem 'launchy'
-   gem 'shoulda-matchers'
+  gem 'shoulda-matchers'
+  gem "selenium-webdriver"
 end
 
 gem 'devise'
 gem "haml"
-
+gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'twitter-bootstrap-rails'
 gem 'simple_form', github: 'plataformatec/simple_form'
 
