@@ -5,18 +5,10 @@ require 'faker'
 describe HotelsController do
   let(:user) { FactoryGirl.create(:user) }
   let(:hotel) { FactoryGirl.create(:hotel) }
-
-
   let(:adress) { FactoryGirl.create(:adress) }
 
   let(:valid_attributes) { attributes_for(:hotel) }
   let(:invalid_attributes) { attributes_for(:invalid_hotel) }
-
-  before :each do
-    allow(Hotel).to receive(:persisted?).and_return(true)
-    allow(Hotel).to receive(:find).with(hotel.id.to_s).and_return(hotel)
-    allow(Hotel).to receive(:save).and_return(true)
-  end
 
   shared_examples("public access to hotels") do
     describe "GET #index" do
@@ -37,7 +29,6 @@ describe HotelsController do
   shared_examples("full access to hotels") do
     describe "GET #show" do
       before :each do
-        allow(Hotel).to receive(:find).with(hotel.id.to_s).and_return(hotel)
         get :show, id: hotel
       end
 
@@ -71,11 +62,11 @@ describe HotelsController do
     describe "POST #create" do
       context "with valid attributes" do
         before :each do
-          post :create, hotel: attributes_for(:hotel, adress_attributes: adress)
+          post :create, hotel: attributes_for(:hotel, adress_attributes: attributes_for(:adress))
         end
 
         it "creates a new hotel" do
-          expect(Hotel.exists?(assigns(:hotel))).to be_true
+          expect(Hotel.exists?(assigns(:hotel))).to be_truthy
         end
 
         it "redirects to the new hotel" do
@@ -89,7 +80,7 @@ describe HotelsController do
         end
 
         it "does not save the new hotel" do
-          expect(Hotel.exists?(hotel)).to be_false
+          expect(Hotel.exists?(assigns(hotel))).to be_falsy
         end
 
         it "re-renders the new method" do
@@ -100,7 +91,6 @@ describe HotelsController do
 
     describe "PATCH #update" do
       it "located the requested @hotel" do
-        allow(hotel).to receive(:update).with(valid_attributes.stringify_keys) { true }
         patch :update, id: hotel, hotel: valid_attributes
         expect(assigns(:hotel)).to eq hotel
       end
@@ -114,12 +104,13 @@ describe HotelsController do
 
   describe "user access" do
     before :each do
-      allow(controller).to receive(:current_user).and_return(user)
+      sign_in user
     end
 
     it_behaves_like "public access to hotels"
     it_behaves_like "full access to hotels"
   end
+
 
   describe "guest access" do
     it_behaves_like "public access to hotels"
