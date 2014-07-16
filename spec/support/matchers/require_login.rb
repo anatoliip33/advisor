@@ -15,4 +15,3 @@ RSpec::Matchers.define :require_login do |expected|
     "redirect to the login form"
   end
 end
-s

@@ -8,6 +8,6 @@
       = p.input :hotel_id, as: :hidden
       = p.input :user_id, as: :hidden
       = p.input :comment_id, as: :hidden
-      = p.input :score, as: :select, collection: (1..5).to_a, label: 'Rating', include_blank: false
+      = p.input :score, as: :select, collection: (1..5).to_a, label: 'Rate', include_blank: false
   .form-actions
     = f.button :submit

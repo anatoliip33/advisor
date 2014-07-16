@@ -10,9 +10,4 @@ describe Adress do
   it { should validate_presence_of(:city) }
   it { should validate_presence_of(:street) }
 
-  it { should validate_uniqueness_of(:country) }
-  it { should validate_uniqueness_of(:state) }
-  it { should validate_uniqueness_of(:city) }
-  it { should validate_uniqueness_of(:street) }
-
 end

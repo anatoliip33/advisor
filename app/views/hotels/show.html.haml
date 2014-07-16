@@ -28,12 +28,14 @@
   %h4
     %strong Comments
   - @comments.each do |comment|
-    %strong= comment.user_name
-    %br
+    %h5{:style=>"color:blue"}
+      %strong= comment.user_name
     %p= comment.body
     %b
-      .rating{:data_score=>"#{comment.rating.score}"}Rating:
-    %p= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }
+      .rating{:data_score=>"#{comment.rating.score}"}Rate:
+    %p
+  %h4{:style=>"margin-top:20px"}
+    %b Leave your comment, please
   = render 'comments/form'
   = link_to 'Back', hotels_path, :class => "btn btn-success"
 
