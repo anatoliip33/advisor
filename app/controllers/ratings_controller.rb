@@ -12,7 +12,6 @@ class RatingsController < ApplicationController
 
 
 private
-
   def rating_params
     params.require(:rating).permit(:score, :hotel_id, :comment_id).merge(user: current_user)
   end

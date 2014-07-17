@@ -2,9 +2,9 @@ class Rating < ActiveRecord::Base
   belongs_to :hotel
   belongs_to :user
   belongs_to :comment
-  after_save :update
+  after_save :average_score
 
-  def update
+  def average_score
     hotel.update({rating: Rating.where(hotel: hotel).average(:score)})
   end
 

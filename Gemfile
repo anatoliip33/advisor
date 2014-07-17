@@ -14,6 +14,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'rspec-mocks', '~> 3.0.2'
   gem 'faker'
   gem "database_cleaner"
   gem 'capybara'

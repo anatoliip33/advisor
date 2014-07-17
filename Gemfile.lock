@@ -273,6 +273,7 @@ DEPENDENCIES
   rails (= 4.1.0)
   rb-fsevent
   rspec-expectations (~> 3.0.2)
+  rspec-mocks (~> 3.0.2)
   rspec-rails
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
