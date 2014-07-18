@@ -14,16 +14,14 @@ feature "New hotels" do
       fill_in "Description", with: "Very large and airy hotel with perfect service"
       fill_in "Price", with: 20.00
       check("Breakfast included? (yes/no)")
-      photo=Rack::Test::UploadedFile.new(File.open(File.join(Rails.root, '/spec/assets/hotel/hotel-12.jpg')))
-      within("div.control-group.country.required.hotel_adress_country") do
-        find("option").select(1)
-      end
-        fill_in "State", with: "Vinnitskay"
-        fill_in "City", with: "Vinnitsa"
-        fill_in "Street", with: "Lyaly Ratushnaya"
-        click_button "Create Hotel"
+      attach_file "Photo", Rails.root.join('spec/assets/hotel/hotel-12.jpg')
+      select "Ukraine", from: "Country"
+      fill_in "State", with: "Vinnitskay"
+      fill_in "City", with: "Vinnitsa"
+      fill_in "Street", with: "Lyaly Ratushnaya"
+      click_button "Create Hotel"
 
-      expect(current_path).to eq hotels_path
+      expect(current_path).to eq(hotel_path(Hotel.first))
       expect(page).to have_content "Hotel was successfully created"
     end
   end
