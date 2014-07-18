@@ -7,14 +7,14 @@ describe Rating do
 
   describe "average rating" do
     before :each do
-      @rating = FactoryGirl.create(:rating, hotel: create(:hotel))
+      @hotel = FactoryGirl.create(:hotel)
     end
 
-    it "should calculate average rating properly" do
+    it "should calculate hotel rating properly" do
       [1, 5].each do |r|
-        @rating = FactoryGirl.create(:rating, hotel: create(:hotel), score: r)
+        FactoryGirl.create(:rating, score: r, hotel: @hotel)
       end
-      @rating.average_score.should eq(3)
+      expect(@hotel.rating).to eq(3)
     end
   end
 
