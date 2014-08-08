@@ -1,6 +1,6 @@
 class HotelsController < ApplicationController
   before_action :set_hotel, only: [:show, :update]
-  skip_before_action :authenticate_user!, only: [:index]
+  before_action :authenticate_user!, only: [:show, :new]
 
   def index
     @hotels = Hotel.all

@@ -1,7 +1,7 @@
 User.create(
-  email: 'admin@example.com',
-  password: 'password',
-  password_confirmation: 'password'
+  email: 'user@example.com',
+  password: 'userexample',
+  password_confirmation: 'userexample'
   )
 
 
@@ -12,6 +12,7 @@ hotel1 = Hotel.create(
     which appears to ‘hover’ above ground-level. A pixilated reflective façade renders the cube full by day;
      by night, it ‘dematerializes’ as light floods the void.',
   photo: File.open(File.join(Rails.root, "/test/assets/images/hotel-1.jpg")),
+  breakfast: true,
   price: 50.00,
   adress_attributes: {country: "United Arab Emirates", state: "Omniyat", city: "Abu Dhabi", street: "Meadows 9"}
   )
@@ -85,6 +86,7 @@ hotel3 = Hotel.create(
   description: 'Last month the world watched as China broke ground on the world’s tallest building the construction team behind the projected 838 meter Sky City plans to whip it up in an unbelievable 10 months. This month U.S. based hotel brand Sheraton is opening what might be the oddest looking piece of hotel architecture you’ll see this year. Designed by much hyped Beijing based architect Ma Yangon of MAD architects, the Sheraton Huizhou Hot Springs Resort is made up of “layers” of floors to create a ring that rises from the South Bank of Huizhou’s Taihu Lake. Called the Sheraton Huizhou Hot Springs Resort the property is just more than 100 meters high and 116 meters wide,
    covering an area of 75 acres with a total floor area of 95,000 square meters.',
   photo: File.open(File.join(Rails.root, "/test/assets/images/hotel-3.jpg")),
+  breakfast: true,
   price: 65.00,
   adress_attributes: {country: "China", state: "Zhejiang", city: "Huzhou", street: "Taihu Road"}
   )
@@ -150,6 +152,7 @@ hotel5 = Hotel.create(
    Welcome to the Parisian palace. Located on the prestigious Avenue Hoche, just steps from the Champs-Elysées and the Arc de Triomphe, Le Royal Monceau,
    Raffles Paris is an oasis of charm, calm and conviviality in the heart of Paris.',
   photo: File.open(File.join(Rails.root, "/test/assets/images/hotel-9.jpg")),
+  breakfast: true,
   price: 60.00,
   adress_attributes: {country: "France", state: "Ile-de-France", city: "Paris", street: "avenue Hoche"}
   )
@@ -203,6 +206,7 @@ Hotel.create(
         will also incorporate an indoor ski slope, water park and “Ice World” entertainment park
          which will stretch over a cliff face and connect two sides of the quarry.',
   photo: File.open(File.join(Rails.root, "/test/assets/images/hotel-5.jpg")),
+  breakfast: true,
   price: 70.00,
   adress_attributes: {country: "China", state: "Jiangxi", city: "Changsha", street: "Pingtang Avenue"}
   )
