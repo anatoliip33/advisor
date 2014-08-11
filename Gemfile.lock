@@ -141,7 +141,11 @@ GEM
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
     hike (1.2.3)
+    httpclient (2.4.0)
     i18n (0.6.9)
+    impressionist (1.5.1)
+      httpclient (~> 2.2)
+      nokogiri (~> 1.5)
     inherited_resources (1.4.1)
       has_scope (~> 0.6.0.rc)
       responders (~> 1.0.0.rc)
@@ -159,6 +163,8 @@ GEM
       activesupport (>= 3.0.0)
     launchy (2.4.2)
       addressable (~> 2.3)
+    letter_opener (1.2.0)
+      launchy (~> 2.2)
     listen (2.7.9)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
@@ -312,9 +318,11 @@ DEPENDENCIES
   guard-rspec
   guard-spork
   haml
+  impressionist
   jbuilder (~> 2.0)
   jquery-rails
   launchy
+  letter_opener
   mini_magick (= 3.5.0)
   rails (= 4.1.0)
   rb-fsevent

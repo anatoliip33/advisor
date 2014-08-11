@@ -1,4 +1,5 @@
 class HotelsController < ApplicationController
+  impressionist actions: [:show]
   before_action :set_hotel, only: [:show, :update]
   before_action :authenticate_user!, only: [:show, :new]
 
@@ -48,6 +49,6 @@ class HotelsController < ApplicationController
   end
 
   def hotel_params
-    params.require(:hotel).permit(:title, :description, :photo, :price, :rating, :breakfast, adress_attributes: [:country, :state, :city, :street, :hotel_id])
+    params.require(:hotel).permit(:title, :description, :photo, :price, :rating, :review, :user_id, :breakfast, adress_attributes: [:country, :state, :city, :street, :hotel_id]).merge(user: current_user)
   end
 end

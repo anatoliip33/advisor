@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 group :development do
+  gem "letter_opener"
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'spork-rails', github: 'sporkrb/spork-rails'
@@ -24,6 +25,7 @@ group :test do
   gem "selenium-webdriver"
 end
 
+gem 'impressionist'
 gem 'devise'
 gem "haml"
 gem 'bcrypt-ruby', '~> 3.0.0'

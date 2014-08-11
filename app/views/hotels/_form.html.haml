@@ -2,6 +2,7 @@
   = f.error_notification
   .form-inputs
     = f.input :title
+    = f.hidden_field :user_id
     = f.input :description, :input_html => { :rows => 6 }
     = f.input :price, as: :string, :input_html => {value: number_with_precision(f.object.price, precision: 2) }, :hint => "prices should be in USD"
     = f.input :breakfast, :as => :boolean, inline_label: 'Breakfast included? (yes/no)', label: false

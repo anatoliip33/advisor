@@ -1,6 +1,6 @@
 ActiveAdmin.register Hotel do
-  actions :all, except: [:new]
-  permit_params :user_id, :title, :description, :photo, :status, :rating, :breakfast, :price
+  actions :all, except: [:new, :destroy]
+  permit_params :user_id, :title, :description, :photo, :status, :rating, :breakfast, :price, :review
 
   scope :pending, :default => true
   scope :approved
@@ -10,6 +10,8 @@ ActiveAdmin.register Hotel do
     selectable_column
     id_column
     column :title
+    column :user
+    column :review
     column :status
     column :rating
     column :breakfast

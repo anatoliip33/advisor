@@ -5,6 +5,12 @@ permit_params :email, :password, :password_confirmation
     selectable_column
     id_column
     column :email
+    column :comments_count do |hotel|
+      hotel.comments.count
+    end
+    column :hotels_count do |user|
+      user.hotels.count
+    end
     column :current_sign_in_at
     column :last_sign_in_at
     column :sign_in_count

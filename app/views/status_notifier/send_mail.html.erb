@@ -1,0 +1,4 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<h2>Notification status</h2>
+<p>This email was sent out to you, because your hotel <b><%= @hotel.title %></b> status is changed to <b><%= @hotel.status %></b>. Your hotel was added at <%= @hotel.created_at %></p>
+<%= link_to "View your hotel", hotel_path(@hotel, only_path: false) %>

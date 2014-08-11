@@ -4,6 +4,7 @@
     = f.input :user_name, label: false, placeholder: 'Name (required field)'
     = f.input :body, placeholder: 'Please, leave your comment', label: false, :input_html => { :rows => 6 }
     = f.hidden_field :hotel_id
+    = f.hidden_field :user_id
     = f.simple_fields_for :rating, @comment.rating do |p|
       = p.input :hotel_id, as: :hidden
       = p.input :user_id, as: :hidden

@@ -8,6 +8,8 @@ class CreateHotels < ActiveRecord::Migration
       t.float :rating
       t.boolean :breakfast
       t.decimal :price, precision:8, scale: 2
+      t.integer :user_id
+      t.integer :review, :default => 0
 
       t.timestamps
     end
