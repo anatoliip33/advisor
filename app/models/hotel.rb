@@ -4,10 +4,10 @@ class Hotel < ActiveRecord::Base
   validate :status_workflow, if: :status_changed?
   validates :title, :description, :photo, :price, presence: true
   validates :title, :description, uniqueness: true
-  validates :photo, allow_blank: true, format: {
-                              with: %r{\.(gif|jpg|png)\Z}i,
-                              message: 'must be a URL for GIF, JPG or PNG image.'
-}
+#   validates :photo, allow_blank: true, format: {
+#                               with: %r{\.(gif|jpg|png)\Z}i,
+#                               message: 'must be a URL for GIF, JPG or PNG image.'
+# }
   belongs_to :user
   mount_uploader :photo, PhotoUploader
   has_many :comments
