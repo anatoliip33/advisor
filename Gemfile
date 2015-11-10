@@ -1,8 +1,11 @@
 source 'https://rubygems.org'
 
+group :production do
+  gem 'pg'
+end
+
 group :development do
   gem "letter_opener"
-  gem 'guard-rspec'
   gem 'guard-spork'
   gem 'spork-rails', github: 'sporkrb/spork-rails'
   gem 'rb-fsevent'
@@ -12,6 +15,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rspec-expectations', '~> 3.0.2'
   gem 'factory_girl_rails'
+  gem 'sqlite3'
+  gem 'guard-rspec'
 end
 
 group :test do
@@ -19,7 +24,6 @@ group :test do
   gem 'faker'
   gem "database_cleaner"
   gem 'capybara'
-  gem 'guard-rspec'
   gem 'launchy'
   gem 'shoulda-matchers'
   gem "selenium-webdriver"
@@ -45,8 +49,7 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
